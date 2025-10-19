@@ -1,8 +1,8 @@
 <br>grid-area //เอาไว้ใช้กับที่แบ่งมาละ format ->
-<br>  grid-row-start
-<br>  grid-column-start
-<br>  grid-row-end
-<br>  grid-column-end
+<br>&nbsp;&nbsp;  grid-row-start
+<br>&nbsp;&nbsp;  grid-column-start
+<br>&nbsp;&nbsp;  grid-row-end
+<br>&nbsp;&nbsp;  grid-column-end
 <br>grid-template-columns: repeat(5, 5.5%); - (จำนวนช่อง, ขนาดของแต่ละช่อง) //เอาไว้สร้าง
 <br>fractional or fr คือเศษส่วน //หน่วย
 <br>grid-template: 60% 40% / 200px; (row / column) (แบ่งเป็นจำนวน) //เอาไว้สร้าง
