@@ -1,0 +1,69 @@
+/*Give the <body> element a background of #bda464*/
+body{
+    background-color: #bda464;
+}
+/*Make the <h1> elements blue*/
+h1{
+    color: blue;
+}
+/*Make all <li> elements in the shade of hexadecimal blue*/
+li{
+    color: blue;
+}
+/*Paragraph background to orange*/
+p{
+    background-color: orange;
+}
+/*Make all <h3> have 5px red solid border*/
+h3{
+    border: 5px solid red;
+}
+/*Give everything with <abbr> bold and underlined*/
+abbr{
+    font-weight: bold;
+    text-decoration: underline;
+}
+/*Give elements with class "explanation" red*/
+.explanation{
+    color: red;
+}
+/*Give <p> in id "zen-benefits" pink background*/
+#zen-benefits{
+    background-color: pink;
+}
+/*Make <li> adjacent to <h2> red background*/
+li+h2{
+    background-color: red;
+}
+/*Give <em> inside <p> red and bold*/
+p em{
+    color: red;
+    font-weight: bold;
+}
+/* Give visited link green */
+a{
+    color: green;
+}
+/* Change to body font to any google font as you like */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+body{
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+}
+/* Add any animation to <h1> (try the new one not same as the example) */
+@keyframes bounceIn {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+        
+    }
+    100% {
+        opacity: 0;
+    }
+}
+h1{
+    animation: bounceIn 1s;
+    animation-iteration-count: infinite;
+}
