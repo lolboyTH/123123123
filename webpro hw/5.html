@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Image Caption</title>
+  <style>
+    .img-container {
+      position: absolute;
+      width: 300px;
+      overflow: hidden;
+      border-radius: 10px;
+    }
+    .img-container img {
+      width: 100%;
+      display: block;
+    }
+    .caption {
+      position: absolute;
+      background: linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0));
+      bottom: -100%;
+      left: 0;
+      width: 100%;
+      padding: 20px 0;
+      color: white;
+      text-align: center;
+      transition: all 0.5s ease;
+    }
+    .img-container:hover .caption {
+      bottom: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="img-container">
+    <img src="https://artprojectsforkids.org/wp-content/uploads/2021/11/How-to-Draw-Peppa-Pig.jpg">
+    <div class="caption">PEPPA PIG</div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            height: 100vh;
+            display: flex;
+            background-color: lightblue;
+        }
+        .wrapper {
+            width: 80%;
+            height: 90%;
+            margin: auto;
+            display: block;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .imgspace {
+            display: flex;
+            width: 800px;
+            height: 600px;
+            margin-bottom: 40px;
+            object-fit: cover;
+
+        }
+        .imgspace img {
+            width: 80%;
+        }
+        .thumbnailspace {
+            display: grid;
+            grid-template-columns: repeat(4, 204px);
+            margin-bottom: 0px;
+            
+        }
+        .thumbnailspace img{
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+        }
+        .thumbnailspace:hover img {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="imgspace">
+            <img src="https://upload.wikimedia.org/wikipedia/en/3/36/Bee_Gees_Stayin_Alive.jpg" class="mainimg">
+        </div>
+        <div class="thumbnailspace">
+            <img src="https://upload.wikimedia.org/wikipedia/en/3/36/Bee_Gees_Stayin_Alive.jpg" class="imgjs" data-index="1">
+            <img src="https://i1.sndcdn.com/artworks-000135365799-8zsuzm-t500x500.jpg" class="imgjs" data-index="2">
+            <img src="https://images.genius.com/7411aa99ee5cf62ea6359928929c419c.1000x1000x1.png" class="imgjs" data-index="3">
+            <img src="https://upload.wikimedia.org/wikipedia/en/3/34/Avicii_Nights_Artwork.png" class="imgjs" data-index="4">
+        </div>
+    </div>
+    <script>
+        const thumbnails = document.querySelectorAll('.imgjs');
+        const mainimg = document.querySelector('.mainimg');
+
+        thumbnails.forEach(img => {
+            img.addEventListener('click', () => {
+                mainimg.src = img.src;
+            });
+        });
+    </script>
+</body>
+</html>

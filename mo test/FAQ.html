@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family:'Arial';
+        }
+        body {
+            padding-top: 40px;
+            display: flex;
+            background-color: lightblue;
+        }
+        .wrapper {
+            position: relative;
+            width: 80%;
+            height: 90%;
+            margin: auto;
+            display: block;
+            overflow: hidden;
+        }
+        .qbox {
+            display: block;
+            position: relative;
+            width: 100%;
+            border: 2px solid black;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .q {
+            display: flex;
+            width: 90%;
+        }
+        .a {
+            width: 100%;
+            
+        }
+        .hide {
+            display: none;
+        }
+        .a p {
+            font-size: 20px;
+        }
+        .more {
+            position: absolute;
+            display: flex;
+            top: 12px;
+            right: 20px ;
+            width: 50px;
+            height: 50px;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            user-select: none;
+        }
+        .more p{
+            padding: 0px;
+        }
+        h1 ,p {
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="qbox">
+            <div class="q">
+                <h1>Why Mo auun
+                    sasdasdad asdasdasdasd asd asdasdasdasdasd asd asdasd asdasdas d asdasd ad asd</h1>
+                <div class="more">
+                    <p>+</p>
+                </div>
+            </div>
+            <div class="a hide">
+                <p>asdasdasd</p>
+            </div>
+        </div>
+        <div class="qbox">
+            <div class="q">
+                <h1>Why Mo auun
+                    sasdasdad asdasdasdasd asd asdasdasdasdasd asd asdasd asdasdas d asdasd ad asd</h1>
+                <div class="more">
+                    <p>+</p>
+                </div>
+            </div>
+            <div class="a hide">
+                <p>asdasdasd</p>
+            </div>
+        </div>
+        <div class="qbox">
+            <div class="q">
+                <h1>Why Mo auun
+                    sasdasdad asdasdasdasd asd asdasdasdasdasd asd asdasd asdasdas d asdasd ad asd</h1>
+                <div class="more">
+                    <p>+</p>
+                </div>
+            </div>
+            <div class="a hide">
+                <p>asdasdasd</p>
+            </div>
+        </div>
+        
+    </div>
+    <script>
+        const q = document.querySelectorAll('.more');
+        q.forEach(more => {
+            more.addEventListener('click', () => {
+                const a = more.closest('.qbox').querySelector('.a');
+                a.classList.toggle('hide');
+                const p = more.querySelector('p');
+                p.textContent = p.textContent == '+' ? '-' : '+';
+            })
+        });
+    </script>
+</body>
+</html>

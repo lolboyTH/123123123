@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Store</title>
+    <style>
+        body {
+            background-color: lightblue;
+            height: 100vh;
+            overflow: hidden;
+            margin: 0;
+        }
+        .wrapper    {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            height: 100%;
+        }
+        .product {
+            display: flex;
+            
+            width: 150px;
+            height: 150px;
+            border-radius: 5px;
+            background-color: white;
+            border: 2px solid black;
+            transition: 0.3s;
+        }
+        .product:hover {
+            box-shadow: 1px 3px black;
+        }
+        .product .bottom {
+            position: absolute;
+            bottom: 10px;
+            width: 150px;
+            text-align: center;
+            opacity: 0;
+            font-size: 15px;
+            transition: 0.3s;
+        }
+        .product:hover .bottom{
+            opacity: 1;
+        }
+        h3 ,p {
+            position: relative;
+            margin: 0px;
+            padding-left: 5px;
+            color: blanchedalmond;
+            font-family: Arial;
+            text-shadow: 2px 0 #000000, -2px 0 #000000, 0 2px #000000, 0 -2px #000000,
+               1px 1px #000000, -1px -1px #000000, 1px -1px #000000, -1px 1px #000000;
+        }
+        h3 {
+            padding-top: 5px;
+        }
+        p {
+            font-size: 10px;
+        }
+        img {
+            position: fixed;
+            object-fit: cover;
+            width: 150px;
+            height: 150px;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="product">
+            <img src="https://media.4-paws.org/3/4/b/f/34bff9ed1c86d4bb706c9945e818f3562405b330/VP0113037-1927x1333-1920x1328.jpg">
+            <h3>Product 1</h3>
+            <p>100 Bath</p>
+            <div class="bottom"><button>Add to Cart</button></div>
+        </div>
+        <div class="product">
+            <img src="https://abeautifulmess.com/wp-content/uploads/2024/06/Candy-Salad-.jpg">
+            <h3>Product 2</h3>
+            <p>200 Bath</p>
+            <div class="bottom"><button>Add to Cart</button></div>
+        </div>
+        <div class="product">
+            <img src="https://media.cnn.com/api/v1/images/stellar/prod/140430115517-06-comfort-foods.jpg?q=w_1110,c_fill">
+            <h3>Product 3</h3>
+            <p>300 Bath</p>
+            <div class="bottom"><button>Add to Cart</button></div>
+        </div>
+    </div>
+</body>
+</html>

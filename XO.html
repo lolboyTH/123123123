@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="th">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>XO</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(180deg, #071023 0%, #071827 100%);
+            font-family: Arial;
+            color: #e6eef8;
+            padding: 20px;
+        }
+        .card {
+            background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+            border-radius: 14px;
+            padding: 20px;
+            width: 360px;
+            box-shadow: 0 10px 30px rgba(2,6,23,0.6);
+        }
+        .status {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 12px;
+        }
+        .board {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            background: transparent;
+        }
+        .cell {
+            width: 100px;
+            height: 100px;
+            background: rgb(100, 100, 100);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            cursor: pointer;
+            user-select: none;
+            transition: transform 0.15s;
+        }
+        .cell:hover {
+            transform: translateY(-4px);
+        }
+        .cell.disabled {
+            cursor: not-allowed;
+            opacity: 0.85;
+        }
+        .cell.x {
+            color: #7dd3fc;
+        }
+        .cell.o {
+            color: #fda4af;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="status">
+            
+            <div class="score">
+                X : <span id="scoreX">0</span>&nbsp;&nbsp;
+                O : <span id="scoreO">0</span>&nbsp;
+                เสมอ : <span id="scoreD">0</span>
+            </div>
+        </div>
+      
+        <div class="board" id="board" aria-label="กระดาน XO">
+           
+        </div>
+    </div>
+
+    <script>
+        const WIN_LINES = [
+            [0,1,2],[3,4,5],[6,7,8],
+            [0,3,6],[1,4,7],[2,5,8],
+            [0,4,8],[2,4,6]
+        ];
+
+        const boardEl = document.getElementById('board');
+        const scoreXEl = document.getElementById('scoreX');
+        const scoreOEl = document.getElementById('scoreO');
+        const scoreDEl = document.getElementById('scoreD');
+
+        let board = ["", "", "", "", "", "", "", "", ""];
+        // ใช้อันนี้แทน [] ได้เหมือนกัน Array(9).fill(null)
+        let current = 'X';
+        let running = true;
+        let scores = { X: 0, O: 0, D: 0 };
+
+        function init() { //สร้าง
+            boardEl.innerHTML = '';
+            for (let i = 0; i < 9; i++) {
+                const c = document.createElement('div');
+                c.className = 'cell';
+                c.dataset.index = i;
+                c.addEventListener('click', XOclick); 
+                // ใช้ลูกศร () => XOclick(i) แทนการเขียน function() { XOclick(i);} หรือไม่มีก็ได้
+                boardEl.appendChild(c);
+            }
+            board.fill(null);
+            current = 'X';
+            running = true;
+        }
+
+        function XOclick(e) { //เราเล่น
+            const boxindex = Number(e.currentTarget.dataset.index);
+            if (!running || board[boxindex] || current !== 'X') return; // เช็คไม่ใช่เทิร์นเรา break
+            makeMove(boxindex, 'X');
+            const result = wincheck();
+            if (result) return check(result);
+            setTimeout(botPlayRandom, 300 + Math.random() * 500);
+        }
+
+        function makeMove(boxindex, player) { //เรากด
+            board[boxindex] = player;
+            const cell = boardEl.querySelector(`.cell[data-index="${boxindex}"]`);
+            cell.classList.add(player === 'X' ? 'x' : 'o', 'disabled');
+            cell.textContent = player;
+        }
+
+        function botPlayRandom() {
+            if (!running) return;
+            const empties = board.map((v, i) => (v ? null : i)).filter(v => v !== null); // หาช่องที่ว่าง
+            if (empties.length === 0) return;
+            const choice = empties[Math.floor(Math.random() * empties.length)];
+            makeMove(choice, 'O');
+            const result = wincheck();
+            if (result) return check(result);
+            current = 'X';
+        }
+
+        function wincheck() {
+            for (const line of WIN_LINES) {
+                const [a, b, c] = line;
+                if (board[a] && board[a] === board[b] && board[a] === board[c]) {
+                    return { winner: board[a] };
+                }
+            }
+            if (board.every(x => x !== null)) return { draw: true };
+            return null;
+        }
+
+        function check(result) {
+            running = false;
+            if (result.draw) {
+                scores.D++;
+                scoreDEl.textContent = scores.D;
+            } else {
+                const w = result.winner;
+                scores[w]++;
+                scoreXEl.textContent = scores.X;
+                scoreOEl.textContent = scores.O;
+            }
+            setTimeout(init, 1000);
+        }
+
+        init();
+    </script>
+</body>
+</html>

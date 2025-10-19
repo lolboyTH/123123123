@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RockPaperScissor</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            overflow: hidden;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        header {
+            padding-bottom: 30px;
+            text-align: center;
+            font-size: 100px;
+            font-weight: bold;
+            color: blanchedalmond;
+            text-shadow: 2px 0 #000000, -2px 0 #000000, 0 2px #000000, 0 -2px #000000,
+            1px 1px #000000, -1px -1px #000000, 1px -1px #000000, -1px 1px #000000;
+        }
+        body {
+            display: flex;
+            background-color: lightblue;
+            flex-direction: column;
+            height: 100vh;
+            overflow: hidden;
+            margin: 0;
+        }
+        .wrapper{
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            margin: 0 50px;
+        }
+        .player, .computer {
+            width: 100%;
+            background-color: none;
+            
+        }
+        .player {
+            position: relative;
+            padding-bottom: 20px;
+            
+        }
+        .computer {
+            position: relative;
+            margin-bottom: 50px;
+            margin-top: -40px;
+        }
+        .rps {
+            display: grid;
+            position: relative;
+            margin: 0 50px 0 ;
+            grid-template-columns: repeat(3, 100px);
+            padding: 100px 100px;
+            justify-content: space-around;
+            width: 100%;
+        }
+        .rps div {
+            height: 120px;
+            width: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 50px;
+            cursor: pointer;
+            user-select: none;
+            transition: 0.5s;
+        }
+        p {
+            margin-top: 12px;
+            font-weight: bold;
+            font-size: 50px;
+        }
+        .computer p {
+            padding-bottom: 30px;
+        
+        }
+        .player .rps div:hover {
+            transform: scale(1.1);
+        } 
+        .computer .rps div:hover {
+            cursor: not-allowed;
+        }
+        .player .clicked {
+            padding-top: 50px;
+        }
+        .computer .clicked {
+            padding-bottom: 50px;
+        }
+        .result {
+            position: absolute;
+            top: 55%;
+            left: 55%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            font-size: 80px;
+            color: blanchedalmond;
+            text-shadow: 2px 0 black, -2px 0 black, 0 2px black, 0 -2px black,
+               1px 1px black, -1px -1px black, 1px -1px black, -1px 1px black;
+        }
+
+    </style>
+</head>
+    <header>Rock Paper Scissor</header>
+<body>
+    <div class="result">
+    </div>
+    <div class="wrapper">
+        <div class="player">
+            <p>player</p>
+            <div class="rps">
+                <div class="RockPaperScissor" data-index="1">✊</div>
+                <div class="RockPaperScissor" data-index="2">✋</div>
+                <div class="RockPaperScissor" data-index="3">✌️</div>
+            </div>
+        </div>
+    
+        <div class="computer">
+            <div class="rps">
+                <div class="RockPaperScissor" data-index="1">✊</div>
+                <div class="RockPaperScissor" data-index="2">✋</div>
+                <div class="RockPaperScissor" data-index="3">✌️</div>
+            </div>
+            <p>computer</p>
+        </div>
+    </div>
+    <script>
+        const result = document.querySelector('.result');
+        const rockpaperscissor = document.querySelectorAll('.RockPaperScissor');
+        
+        rockpaperscissor.forEach(RockPaperScissor => {
+            RockPaperScissor.addEventListener('click', () => {
+                const index = RockPaperScissor.dataset.index;
+                RockPaperScissor.classList.add('clicked');
+
+                const computerIndex = Math.floor(Math.random()*3 + 1);
+                if (RockPaperScissor.dataset.index == '1') {
+                    if (computerIndex == 2) {
+                        result.textContent = "You Lose!";
+                    } else if (computerIndex == 3) {
+                        result.textContent = "You Win!";
+                    } else {
+                        result.textContent = "It's a Tie!";
+                    }
+                }
+                else if (RockPaperScissor.dataset.index == '2') {
+                    if (computerIndex == 3) {
+                        result.textContent = "You Lose!";
+                    } else if (computerIndex == 1) {
+                        result.textContent = "You Win!";
+                    } else {
+                        result.textContent = "It's a Tie!";
+                    }
+                }
+                else {
+                    if (computerIndex == 1) {
+                        result.textContent = "You Lose!";
+                    } else if (computerIndex == 2) {
+                        result.textContent = "You Win!";
+                    } else {
+                        result.textContent = "It's a Tie!";
+                    }
+                }
+            })
+        });
+
+
+    </script>
+</body>
+</html>
