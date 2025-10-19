@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1{
+            text-align: center;
+        }
+        h2{
+            text-align: center;
+        }
+        .container{
+            display: flex;
+            justify-content: center;
+        }
+        .rock, .paper, .scissor{
+            transition: transform 0.2s;
+        }
+        .rock:hover{
+            transform: scale(1.2);
+        }
+        .paper:hover{
+            transform: scale(1.2);
+        }
+        .scissor:hover{
+            transform: scale(1.2);
+        }
+    </style>
+</head>
+<body>
+    <h1>Rock Paper Scissors Game</h1>
+    <h2>You</h2>
+    <div class="container">
+        <img class="rock" src="https://rock-paper-scissors-lilac-alpha.vercel.app/static/media/rock.png" alt="rock" width="150px" onclick="play('rock')">
+        <img class="paper" src="https://rock-paper-scissors-lilac-alpha.vercel.app/static/media/paper.png" alt="paper" width="150px" onclick="play('paper')">
+        <img class="scissor" src="https://rock-paper-scissors-lilac-alpha.vercel.app/static/media/scissors.png" alt="scissors" width="150px" onclick="play('scissors')">
+    </div>
+    <h2>Bot</h2>
+    <div class="container">
+        <img src="https://rock-paper-scissors-lilac-alpha.vercel.app/static/media/rock.png" alt="rock" width="150px" onclick="play('rock')">
+        <img src="https://rock-paper-scissors-lilac-alpha.vercel.app/static/media/paper.png" alt="paper" width="150px" onclick="play('paper')">
+        <img src="https://rock-paper-scissors-lilac-alpha.vercel.app/static/media/scissors.png" alt="scissors" width="150px" onclick="play('scissors')">
+    </div>
+    <h2 id="result">Result</h2>
+
+    <script>
+        function play(userChoice) {
+            const choices = ['rock', 'paper', 'scissors'];
+            const botChoice = choices[Math.floor(Math.random() * choices.length)];
+            let result = '';
+
+            if (userChoice === botChoice) {
+                result = "It's a tie!";
+            } else if (
+                (userChoice === 'rock' && botChoice === 'scissors') ||
+                (userChoice === 'paper' && botChoice === 'rock') ||
+                (userChoice === 'scissors' && botChoice === 'paper')
+            ) {
+                result = 'You win!';
+            } else {
+                result = 'Bot wins!';
+            }
+
+            document.getElementById('result').innerText = `You chose ${userChoice}, Bot chose ${botChoice}. ${result}`;
+        }
+    </script>
+</body>
+</html>
