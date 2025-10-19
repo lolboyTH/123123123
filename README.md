@@ -13,10 +13,10 @@ flex-direction คือเอาไว้ควบคุมตำแหน่�
 align-self เหมือนกับ align-items แต่เอาไว้ใช้กับ content ที่เป็นลูกของ align-items
 flex-wrap: wrap; เอาไว้ใช้กับจัดเรียง content ให้พอดีกับขนาด (fix size) ถ้าจำนวนเกินจะขึ้นบรรทัดใหม่ให้แทน
 
-https://cdn.discordapp.com/attachments/1248891679017275444/1429539248448733314/image.png?ex=68f681ac&is=68f5302c&hm=f9ef86c91d99ec5b5c51538f3d38e71ec4a51e9b4676027cbb0e86dcc5af3a4c&
+<img width="787" height="372" alt="image1" src="https://github.com/user-attachments/assets/d96f4efc-458d-4409-99c6-5ef700082932" />
 
-https://cdn.discordapp.com/attachments/1248891679017275444/1429539283391484075/image.png?ex=68f681b4&is=68f53034&hm=320e06e8923d5c5bb4fc37967ee1ddca1e93d2dd53f490ce85dc7812ea17cc7a&
+<img width="790" height="143" alt="image2" src="https://github.com/user-attachments/assets/aa843711-f42c-4276-b3f1-294d08bd329c" />
 
-https://cdn.discordapp.com/attachments/1248891679017275444/1429539312487370863/image.png?ex=68f681bb&is=68f5303b&hm=553ba7a712c0aedfe5f56b50aba874efe25280f805befb6acd2406cbc2b91e55&
+<img width="792" height="548" alt="image3" src="https://github.com/user-attachments/assets/fede0808-d0ca-484d-8260-128b7a9c55ec" />
 
-https://cdn.discordapp.com/attachments/1248891679017275444/1429539335618957342/image.png?ex=68f681c1&is=68f53041&hm=b7ab5771b4264863a176a146d68db5fe26ea9e484ffeb46651450964325396ee&
+<img width="823" height="757" alt="image4" src="https://github.com/user-attachments/assets/d4f66f27-9de6-4038-9d40-47f2576bbded" />
